@@ -70,6 +70,520 @@
   .section-sub{font-size:15px;color:var(--text-muted);line-height:1.7;max-width:520px;margin-bottom:40px}
   .container{max-width:1100px;margin:0 auto}
 
+  /* MENU */
+  .menu-section{background:var(--warm-white)}
+  .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+  .tab-btn{padding:8px 18px;border-radius:24px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all .2s;font-family:'Noto Sans Thai',sans-serif}
+  .tab-btn:hover{border-color:var(--amber);color:var(--amber)}
+  .tab-btn.active{background:var(--amber);color:#fff;border-color:var(--amber)}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+  .menu-card{background:var(--cream);border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:transform .25s,box-shadow .25s;cursor:default}
+  .menu-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-warm)}
+  .menu-card.hidden{display:none}
+  .menu-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
+  .menu-body{padding:14px 16px 16px}
+  .menu-name{font-family:'Noto Serif Thai',serif;font-size:15px;font-weight:700;color:var(--tea-dark);margin-bottom:4px}
+  .menu-name-en{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+  .menu-desc{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:10px}
+  .menu-footer{display:flex;align-items:center;justify-content:space-between}
+  .menu-price{font-size:16px;font-weight:700;color:var(--amber)}
+  .badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.04em}
+  .badge-hot{background:#FDEADE;color:var(--orange)}
+  .badge-new{background:var(--teal-light);color:var(--teal)}
+  .badge-best{background:var(--amber-pale);color:var(--amber)}
+  .g-thai{background:linear-gradient(135deg,#FEE4C0,#F5B13A22)}
+  .g-green{background:linear-gradient(135deg,#D4EDE7,#1A6B5A11)}
+  .g-orange{background:linear-gradient(135deg,#FDEADE,#D95E1E11)}
+
+  /* WHY */
+  .why-section{background:var(--tea-dark)}
+  .why-section .section-heading{color:#FEF3DC}
+  .why-section .section-sub{color:rgba(255,220,160,.65)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .why-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,200,120,.15);border-radius:20px;padding:28px 24px;transition:background .2s}
+  .why-card:hover{background:rgba(255,255,255,.10)}
+  .why-icon{font-size:36px;margin-bottom:14px;display:block}
+  .why-title{font-family:'Noto Serif Thai',serif;font-size:17px;font-weight:700;color:#FFE4A8;margin-bottom:8px}
+  .why-desc{font-size:14px;color:rgba(255,220,160,.7);line-height:1.7}
+
+  /* GALLERY */
+  .gallery-section{background:var(--cream)}
+  #gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+  .gal-item{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--amber-pale);border:1px solid var(--border);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative}
+  .gal-item:hover{transform:scale(1.03);box-shadow:var(--shadow-warm);z-index:1}
+  .gal-item:first-child{grid-column:span 2;grid-row:span 2}
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block}
+  .gal-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px}
+  .gal-placeholder.big{font-size:80px}
+  .gal-label{position:absolute;bottom:10px;left:12px;font-size:11px;font-weight:600;color:#fff;background:rgba(61,31,8,.65);padding:3px 10px;border-radius:10px;backdrop-filter:blur(4px)}
+
+  /* LIGHTBOX */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;flex-direction:column}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:90vw;max-height:80vh;border-radius:12px;object-fit:contain}
+  .lightbox-close{position:absolute;top:20px;right:24px;color:#fff;font-size:32px;cursor:pointer;background:none;border:none;line-height:1}
+  .lightbox-nav{display:flex;gap:16px;margin-top:16px}
+  .lightbox-nav button{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 20px;border-radius:24px;cursor:pointer;font-size:14px;font-family:'Noto Sans Thai',sans-serif;transition:background .2s}
+  .lightbox-nav button:hover{background:rgba(255,255,255,.25)}
+
+  /* LOCATION */
+  .location-section{background:var(--cream)}
+  .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  @media(max-width:720px){.location-grid{grid-template-columns:1fr}}
+  .map-container{border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-card);aspect-ratio:4/3}
+  .map-container iframe{width:100%;height:100%;border:none}
+  .info-list{list-style:none}
+  .info-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border)}
+  .info-item:last-child{border-bottom:none}
+  .info-icon{width:40px;height:40px;border-radius:12px;background:var(--amber-pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .info-label{font-size:11px;color:var(--text-muted);margin-bottom:2px;font-weight:500;letter-spacing:.05em}
+  .info-value{font-size:14px;font-weight:600;color:var(--tea-dark);line-height:1.5}
+  .info-value a{color:var(--amber);text-decoration:none}
+  .info-value a:hover{text-decoration:underline}
+  .hours-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+  .hours-table td{padding:3px 0;color:var(--text-secondary)}
+  .hours-table td:last-child{text-align:right;font-weight:500;color:var(--tea-dark)}
+  .hours-open{color:var(--teal)!important}
+  .hours-closed{color:#e53935!important}
+  .hours-today{font-weight:700!important}
+
+  /* SKELETON */
+  @keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+  .skel{border-radius:6px;background:linear-gradient(90deg,#f0e8dc 25%,#fdf0e2 50%,#f0e8dc 75%);background-size:800px 100%;animation:shimmer 1.4s infinite linear;display:block}
+
+  /* FOOTER */
+  footer{background:var(--tea-dark);padding:40px 5vw;text-align:center;color:rgba(255,220,160,.55);font-size:13px}
+  .footer-logo{font-family:'Noto Serif Thai',serif;font-size:24px;font-weight:700;color:#FFE4A8;margin-bottom:8px}
+  footer p{margin-bottom:4px}
+  footer a{color:rgba(255,220,160,.75);text-decoration:none}
+  footer a:hover{color:#FFE4A8}
+
+  /* STICKY BAR */
+  .sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--tea-dark);border-top:1px solid rgba(255,200,100,.2);padding:12px 16px;gap:10px;align-items:center;justify-content:center;padding-bottom:max(12px,env(safe-area-inset-bottom))}
+  @media(max-width:640px){.sticky-bar{display:flex}}
+  .sticky-btn{flex:1;max-width:180px;display:flex;align-items:center;justify-content:center;gap:7px;padding:12px 16px;border-radius:14px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;font-family:'Noto Sans Thai',sans-serif;border:none;cursor:pointer}
+  .sticky-call{background:var(--amber);color:#fff}
+  .sticky-map{background:rgba(255,255,255,.1);color:#FFE4A8;border:1px solid rgba(255,200,100,.25)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--amber);color:var(--amber);padding:11px 24px;border-radius:28px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;font-family:'Noto Sans Thai',sans-serif}
+  .btn-ghost:hover{background:var(--amber);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ชา<span>ช้าง</span></div>
+  <ul class="nav-links">
+    <li><a href="#menu">เมนู</a></li>
+    <li><a href="#gallery">รูปภาพ</a></li>
+    <li><a href="#location">ที่ตั้ง</a></li>
+  </ul>
+  <a href="tel:0639535602" class="nav-cta">📞 โทรสั่ง</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge">📍 สาขานครนายก · พรหมณี</div>
+    <h1 class="hero-title" id="hero-name">ชาช้าง</h1>
+    <p class="hero-title-en">CHA CHANG · NAKHON NAYOK</p>
+    <p class="hero-tagline"><strong>ชาไทยเด็ด หอม หวาน นุ่มนวล</strong><br>กาแฟส้มอร่อยเป็นเอกลักษณ์ ราคาไม่แพง<br>บริการอบอุ่น บรรยากาศร่มรื่น</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">🧋 ดูเมนู</a>
+      <a id="hero-dir-btn" href="https://maps.google.com/?q=ชาช้าง+นครนายก+พรหมณี" target="_blank" class="btn-outline">📍 พาฉันไป</a>
+    </div>
+  </div>
+  <div class="hero-drinks">
+    <div class="drink-circle"><span class="drink-emoji">🧋</span></div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="social-bar">
+  <div class="social-item">
+    <div class="stars-row">★★★★★</div>
+    <strong id="bar-rating">4.7</strong>
+    <span>คะแนน Google</span>
+  </div>
+  <div class="divider-dot"></div>
+  <div class="social-item">
+    <span>⭐</span>
+    <strong id="bar-count">11</strong>
+    <span>รีวิว</span>
+  </div>
+  <div class="divider-dot"></div>
+  <div class="social-item">
+    <span id="bar-status-dot"></span>
+    <strong id="bar-open-text">เปิดให้บริการ</strong>
+  </div>
+  <div class="divider-dot"></div>
+  <div class="social-item"><span>🚚</span><strong>ราคาไม่แพง</strong><span>บริการดีเยี่ยม</span></div>
+</div>
+
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <span class="section-label reveal">เมนูของเรา</span>
+    <h2 class="section-heading reveal">เครื่องดื่มทุกแก้วคัดสรรมาเพื่อคุณ</h2>
+    <p class="section-sub reveal">จากชาไทยต้นตำรับ ถึงกาแฟส้มรสชาติเป็นเอกลักษณ์</p>
+    <div class="filter-tabs reveal">
+      <button class="tab-btn active" data-filter="all">ทั้งหมด</button>
+      <button class="tab-btn" data-filter="thai">ชาไทย</button>
+      <button class="tab-btn" data-filter="coffee">กาแฟ</button>
+      <button class="tab-btn" data-filter="green">ชาเขียว</button>
+      <button class="tab-btn" data-filter="special">พิเศษ</button>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card" data-cat="thai"><div class="menu-thumb g-thai">🧋</div><div class="menu-body"><div class="menu-name">ชาไทยนม</div><div class="menu-name-en">Thai Milk Tea</div><div class="menu-desc">ชาไทยเด็ดหอมหวาน นุ่มนวล สูตรต้นตำรับ</div><div class="menu-footer"><span class="menu-price">฿35–55</span><span class="badge badge-best">ยอดนิยม ⭐</span></div></div></div>
+      <div class="menu-card" data-cat="thai"><div class="menu-thumb" style="background:linear-gradient(135deg,#FFF0C8,#FFCC6622)">🫖</div><div class="menu-body"><div class="menu-name">ชาไทยล้วน</div><div class="menu-name-en">Thai Tea Original</div><div class="menu-desc">หอมกลิ่นชา รสชาติเข้มข้น กลมกล่อม</div><div class="menu-footer"><span class="menu-price">฿25–40</span></div></div></div>
+      <div class="menu-card" data-cat="coffee special"><div class="menu-thumb g-orange">🍊</div><div class="menu-body"><div class="menu-name">กาแฟส้ม</div><div class="menu-name-en">Orange Coffee</div><div class="menu-desc">อร่อยเป็นเอกลักษณ์ หวานอมเปรี้ยว — ต้องลอง!</div><div class="menu-footer"><span class="menu-price">฿45–60</span><span class="badge badge-hot">ต้องลอง 🔥</span></div></div></div>
+      <div class="menu-card" data-cat="green"><div class="menu-thumb g-green">🍵</div><div class="menu-body"><div class="menu-name">ชาเขียวนม</div><div class="menu-name-en">Green Milk Tea</div><div class="menu-desc">ชาเขียวญี่ปุ่น กลิ่นหอมละมุน ดื่มง่าย</div><div class="menu-footer"><span class="menu-price">฿35–55</span><span class="badge badge-best">ยอดนิยม ⭐</span></div></div></div>
+      <div class="menu-card" data-cat="coffee"><div class="menu-thumb" style="background:linear-gradient(135deg,#EDE0D4,#6F4E3711)">☕</div><div class="menu-body"><div class="menu-name">กาแฟนม</div><div class="menu-name-en">Milk Coffee</div><div class="menu-desc">กาแฟคั่วหอม ผสมนมสด ดื่มได้ทุกวัน</div><div class="menu-footer"><span class="menu-price">฿35–50</span></div></div></div>
+      <div class="menu-card" data-cat="special"><div class="menu-thumb" style="background:linear-gradient(135deg,#E4EDD4,#5A7A1911)">🌿</div><div class="menu-body"><div class="menu-name">มัทฉะลาเต้</div><div class="menu-name-en">Matcha Latte</div><div class="menu-desc">มัทฉะแท้ ผสมนมสด รสชาติสมดุล</div><div class="menu-footer"><span class="menu-price">฿45–65</span><span class="badge badge-new">ใหม่</span></div></div></div>
+      <div class="menu-card" data-cat="special"><div class="menu-thumb" style="background:linear-gradient(135deg,#EDE4F0,#7A19A511)">💜</div><div class="menu-body"><div class="menu-name">เผือกนม</div><div class="menu-name-en">Taro Milk Tea</div><div class="menu-desc">หอมเผือกแท้ หวานมัน เนื้อครีมมี่</div><div class="menu-footer"><span class="menu-price">฿40–60</span></div></div></div>
+      <div class="menu-card" data-cat="thai special"><div class="menu-thumb" style="background:linear-gradient(135deg,#FFF0E0,#FF880022)">🥤</div><div class="menu-body"><div class="menu-name">ชาช้างพิเศษ</div><div class="menu-name-en">Cha Chang Signature</div><div class="menu-desc">สูตรเฉพาะของชาช้าง รสชาติครบในแก้วเดียว</div><div class="menu-footer"><span class="menu-price">฿55–75</span><span class="badge badge-hot">ซิกเนเจอร์ 🐘</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="about">
+  <div class="container">
+    <span class="section-label reveal" style="color:#F5B13A">ทำไมต้องชาช้าง</span>
+    <h2 class="section-heading reveal" style="color:#FEF3DC">3 เหตุผลที่ลูกค้ากลับมาซ้ำ</h2>
+    <p class="section-sub reveal" style="color:rgba(255,220,160,.65)">จากปากคำของลูกค้าจริง บน Google Maps</p>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1"><span class="why-icon">🍵</span><div class="why-title">รสชาติต้นตำรับ</div><div class="why-desc">ชาไทยหอม หวาน นุ่มนวล ใช้วัตถุดิบคุณภาพ ชงสดทุกแก้ว ทุกวัน</div></div>
+      <div class="why-card reveal reveal-delay-2"><span class="why-icon">💰</span><div class="why-title">ราคาเป็นมิตร</div><div class="why-desc">ราคาไม่แพง คุ้มค่าทุกแก้ว เริ่มต้นเพียง ฿25 เหมาะทุกวันและทุกโอกาส</div></div>
+      <div class="why-card reveal reveal-delay-3"><span class="why-icon">😊</span><div class="why-title">บริการอบอุ่น</div><div class="why-desc">เจ้าของดูแลเองทุกวัน บรรยากาศร่มรื่น สวยงาม เหมาะนั่งพักดื่มชา</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <span class="section-label reveal">ภาพบรรยากาศ</span>
+    <h2 class="section-heading reveal">บรรยากาศร้าน & เครื่องดื่ม</h2>
+    <p class="section-sub reveal" id="gallery-sub">ร่มรื่น เรียบง่าย สวยงาม — มาแล้วไม่อยากกลับ</p>
+    <div id="gallery-grid">
+      <!-- Placeholders (แทนที่ด้วยรูปจริงเมื่อมี API Key) -->
+      <div class="gal-item" onclick="openLightbox(0)"><div class="gal-placeholder big">🧋</div><div class="gal-label">ชาไทยนม</div></div>
+      <div class="gal-item" onclick="openLightbox(1)"><div class="gal-placeholder">🍊</div><div class="gal-label">กาแฟส้ม</div></div>
+      <div class="gal-item" onclick="openLightbox(2)"><div class="gal-placeholder">🍵</div><div class="gal-label">ชาเขียว</div></div>
+      <div class="gal-item" onclick="openLightbox(3)"><div class="gal-placeholder">🏪</div><div class="gal-label">หน้าร้าน</div></div>
+      <div class="gal-item" onclick="openLightbox(4)"><div class="gal-placeholder">🌿</div><div class="gal-label">มัทฉะ</div></div>
+      <div class="gal-item" onclick="openLightbox(5)"><div class="gal-placeholder">💜</div><div class="gal-label">เผือกนม</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-nav">
+    <button onclick="lbNav(-1);event.stopPropagation()">← ก่อนหน้า</button>
+    <button onclick="lbNav(1);event.stopPropagation()">ถัดไป →</button>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<section class="location-section" id="location">
+  <div class="container">
+    <span class="section-label reveal">ที่ตั้งร้าน</span>
+    <h2 class="section-heading reveal">หาเราเจอได้ที่นี่</h2>
+    <div class="location-grid">
+      <div class="map-container reveal">
+        <iframe id="map-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d970.95!2d101.2185!3d14.1757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311e5e8c09e64c67%3A0x1e5418d2a36d3a21!2z4LiK4Liy4LiZ4Lij4LmM4Lie4Liy4LiBIOC4quC4uOC4o-C4ouC5jOC4iuC4ouC4o-C4seC4mQ!5e0!3m2!1sth!2sth!4v1700000000000"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ที่ตั้งชาช้าง นครนายก">
+        </iframe>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <ul class="info-list">
+          <li class="info-item">
+            <div class="info-icon">📍</div>
+            <div><div class="info-label">ที่อยู่</div><div class="info-value" id="info-address">90/5 พรหมณี เมือง<br>นครนายก 26000</div></div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">📞</div>
+            <div><div class="info-label">โทรศัพท์</div><div class="info-value" id="info-phone"><a href="tel:0639535602">063 953 5602</a></div></div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">🕐</div>
+            <div><div class="info-label">เวลาเปิด-ปิด</div><div class="info-value" id="info-hours">
+              <table class="hours-table">
+                <tr><td>จันทร์–ศุกร์</td><td class="hours-open">09:00–21:00</td></tr>
+                <tr><td>เสาร์–อาทิตย์</td><td class="hours-open">09:00–22:00</td></tr>
+              </table>
+            </div></div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">🚗</div>
+            <div><div class="info-label">เดินทาง</div><div class="info-value"><a id="dir-link" href="https://maps.google.com/?q=90/5+Phrommani+Nakhon+Nayok" target="_blank">เปิดใน Google Maps →</a></div></div>
+          </li>
+        </ul>
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="tel:0639535602" class="btn-primary" style="font-size:14px;padding:11px 22px">📞 โทรเลย</a>
+          <a id="nav-btn" href="https://maps.google.com/?q=ชาช้าง+นครนายก" target="_blank" class="btn-ghost" style="font-size:14px;padding:11px 22px">📍 นำทาง</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ชาช้าง 🐘</div>
+  <p id="footer-name">สาขานครนายก · 90/5 พรหมณี เมืองนครนายก 26000</p>
+  <p><a href="tel:0639535602">063 953 5602</a></p>
+  <p style="margin-top:16px;font-size:12px;opacity:.5">© 2025 ชาช้าง สาขานครนายก · ทำด้วยใจ 🧡</p>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="tel:0639535602" class="sticky-btn sticky-call">📞 โทรสั่ง</a>
+  <a id="sticky-map-btn" href="https://maps.google.com/?q=90/5+Phrommani+Nakhon+Nayok" target="_blank" class="sticky-btn sticky-map">📍 นำทาง</a>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// CONFIG — แก้ไขค่านี้เมื่อมี API Key
+// ═══════════════════════════════════════════
+const PLACE_ID = 'ChIJ65HC-H4xHTERkZ1oK_B5oYE';
+const API_KEY  = '';  // ← ใส่ Google Places API Key ของคุณที่นี่ เช่น 'AIzaSyXXXXXX'
+// ═══════════════════════════════════════════
+
+// Photo refs and lightbox
+let photoRefs = [];
+let lbIndex = 0;
+
+// ── Filter tabs ──
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.menu-card').forEach(c => {
+      c.classList.toggle('hidden', f !== 'all' && !c.dataset.cat.includes(f));
+    });
+  });
+});
+
+// ── Scroll reveal ──
+const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// ── Nav scroll spy ──
+const navAs = document.querySelectorAll('.nav-links a');
+new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting) navAs.forEach(a => { a.style.color = a.getAttribute('href')==='#'+e.target.id ? 'var(--amber)' : ''; });
+}), {threshold:.4}).observe; // lightweight — just use scroll
+document.querySelectorAll('section[id]').forEach(s => {
+  new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting) navAs.forEach(a => { a.style.color = a.getAttribute('href')==='#'+s.id ? 'var(--amber)' : ''; });
+  }), {threshold:.3}).observe(s);
+});
+
+// ── Load Google Maps JS SDK ──
+function loadSDK(k) {
+  if (window.google && window.google.maps && window.google.maps.places) { fetchAll(k); return; }
+  const s = document.createElement('script');
+  s.src = `https://maps.googleapis.com/maps/api/js?key=${k}&libraries=places&language=th&callback=onSDKReady`;
+  s.async = true;
+  window._pendingKey = k;
+  document.head.appendChild(s);
+}
+
+window.onSDKReady = function() { fetchAll(window._pendingKey); };
+
+// ── Main fetch ──
+function fetchAll(k) {
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+  const map = new google.maps.Map(div, {center:{lat:14.18,lng:101.22},zoom:15});
+  const svc = new google.maps.places.PlacesService(map);
+
+  svc.getDetails({
+    placeId: PLACE_ID,
+    fields: ['name','formatted_address','formatted_phone_number','rating',
+             'user_ratings_total','photos','opening_hours','url','geometry'],
+    language: 'th'
+  }, (place, status) => {
+    if (status !== google.maps.places.PlacesServiceStatus.OK || !place) { return; }
+    document.body.removeChild(div);
+    applyPlaceData(place, k);
+  });
+}
+
+// ── Apply all data ──
+function applyPlaceData(p, k) {
+  // ── Basic info ──
+  if (p.name) {
+    document.getElementById('hero-name').textContent = p.name;
+    document.getElementById('footer-name').textContent = p.name + ' · ' + (p.formatted_address || '');
+  }
+  if (p.formatted_address) {
+    document.getElementById('info-address').textContent = p.formatted_address;
+  }
+  if (p.formatted_phone_number) {
+    const ph = p.formatted_phone_number;
+    document.getElementById('info-phone').innerHTML = `<a href="tel:${ph.replace(/\s/g,'')}">${ph}</a>`;
+  }
+  const mapsUrl = p.url || `https://maps.google.com/?place_id=${PLACE_ID}`;
+  document.getElementById('dir-link').href = mapsUrl;
+  document.getElementById('nav-btn').href = mapsUrl;
+  document.getElementById('hero-dir-btn').href = mapsUrl;
+  document.getElementById('sticky-map-btn').href = mapsUrl;
+
+  // ── Rating ──
+  if (p.rating) {
+    document.getElementById('bar-rating').textContent = p.rating.toFixed(1);
+    document.getElementById('bar-count').textContent = p.user_ratings_total || '';
+  }
+
+  // ── Open/Close status ──
+  if (p.opening_hours) {
+    const isOpen = p.opening_hours.isOpen();
+    const dot = document.getElementById('bar-status-dot');
+    const txt = document.getElementById('bar-open-text');
+    dot.className = isOpen ? 'open' : 'closed';
+    txt.textContent = isOpen ? 'เปิดอยู่ตอนนี้' : 'ปิดอยู่ตอนนี้';
+    renderHours(p.opening_hours.weekday_text);
+  }
+
+  // ── Photos → Gallery ──
+  if (p.photos && p.photos.length) {
+    photoRefs = p.photos.slice(0, 12);
+    renderGallery(photoRefs, k);
+    document.getElementById('gallery-sub').textContent = `รูปภาพจริงจาก Google Maps — ${photoRefs.length} รูป`;
+  }
+
+}
+
+// ── Render Hours ──
+function renderHours(weekdayText) {
+  if (!weekdayText) return;
+  const today = new Date().getDay(); // 0=Sun
+  // Google returns Mon first (index 0 = Mon)
+  const googleToday = today === 0 ? 6 : today - 1;
+  let html = '<table class="hours-table">';
+  weekdayText.forEach((line, i) => {
+    const parts = line.split(': ');
+    const day = parts[0];
+    const time = parts[1] || '';
+    const isToday = i === googleToday;
+    const isOpenDay = !time.toLowerCase().includes('closed') && !time.includes('ปิด');
+    html += `<tr class="${isToday?'hours-today':''}">
+      <td>${day}${isToday?' (วันนี้)':''}</td>
+      <td class="${isOpenDay?'hours-open':'hours-closed'}">${time}</td>
+    </tr>`;
+  });
+  html += '</table>';
+  document.getElementById('info-hours').innerHTML = html;
+}
+
+// ── Render Gallery ──
+function renderGallery(photos, k) {
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+  photos.forEach((photo, i) => {
+    const url = photo.getUrl({maxWidth: 800, maxHeight: 600});
+    const item = document.createElement('div');
+    item.className = 'gal-item';
+    item.onclick = () => openLightbox(i);
+    item.innerHTML = `<img src="${url}" alt="ภาพร้านชาช้าง ${i+1}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=gal-placeholder>📷</div>'">`;
+    grid.appendChild(item);
+  });
+}
+
+// ── Lightbox ──
+function openLightbox(i) {
+  lbIndex = i;
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  if (photoRefs.length && photoRefs[i]) {
+    img.src = photoRefs[i].getUrl({maxWidth:1200, maxHeight:900});
+  }
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.target.tagName === 'BUTTON') {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + photoRefs.length) % photoRefs.length;
+  const img = document.getElementById('lightbox-img');
+  img.style.opacity = '0.3';
+  img.src = photoRefs[lbIndex].getUrl({maxWidth:1200, maxHeight:900});
+  img.onload = () => img.style.opacity = '1';
+}
+
+// ── Keyboard lightbox ──
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key==='Escape') closeLightbox({target:document.getElementById('lightbox')});
+  if (e.key==='ArrowLeft') lbNav(-1);
+  if (e.key==='ArrowRight') lbNav(1);
+});
+
+// ── Init — ใส่ API Key ของคุณที่บรรทัดนี้ ──
+// ── Init ──
+(function(){
+  if (API_KEY) loadSDK(API_KEY);
+})();
+</script>
+</body>
+</html>  .hero-orb-1{width:500px;height:500px;background:#F5B13A;top:-100px;right:-100px}
+  .hero-orb-2{width:300px;height:300px;background:#D4820A;bottom:0;left:10%}
+  .hero-content{position:relative;z-index:1;padding:60px 5vw;max-width:680px;animation:fadeUp .9s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#FFE4A8;font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;margin-bottom:20px;backdrop-filter:blur(4px);animation:fadeUp .9s .1s ease both}
+  .hero-title{font-family:'Noto Serif Thai',serif;font-size:clamp(42px,9vw,80px);font-weight:700;color:#FEFCF8;line-height:1.1;margin-bottom:8px;animation:fadeUp .9s .2s ease both}
+  .hero-title-en{font-size:clamp(14px,3vw,20px);color:rgba(255,232,180,.75);font-weight:300;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;animation:fadeUp .9s .3s ease both}
+  .hero-tagline{font-size:clamp(15px,3vw,19px);color:rgba(255,240,210,.9);line-height:1.7;max-width:480px;margin-bottom:36px;animation:fadeUp .9s .4s ease both}
+  .hero-tagline strong{color:#FFE4A8;font-weight:600}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .9s .5s ease both}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:#FFE4A8;color:var(--tea-dark);padding:13px 26px;border-radius:32px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Noto Sans Thai',sans-serif}
+  .btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#FFE4A8;padding:13px 26px;border-radius:32px;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s}
+  .btn-outline:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
+  .hero-drinks{position:absolute;right:0;bottom:0;top:56px;width:45vw;max-width:520px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;pointer-events:none}
+  .drink-circle{width:min(55vw,480px);height:min(55vw,480px);border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,228,168,.22) 0%,rgba(212,130,10,.08) 60%,transparent 80%);border:1px solid rgba(255,210,120,.15);display:flex;align-items:center;justify-content:center;margin-bottom:-80px;animation:floatCircle 6s ease-in-out infinite}
+  @keyframes floatCircle{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  .drink-emoji{font-size:clamp(80px,14vw,160px);filter:drop-shadow(0 12px 32px rgba(0,0,0,.3))}
+
+  /* SOCIAL BAR */
+  .social-bar{background:var(--tea-dark);padding:18px 5vw;display:flex;align-items:center;justify-content:center;gap:clamp(16px,4vw,48px);flex-wrap:wrap}
+  .social-item{display:flex;align-items:center;gap:8px;color:rgba(255,232,180,.85);font-size:13px}
+  .social-item strong{color:#FFE4A8;font-size:15px;font-weight:700}
+  .stars-row{color:#F5B13A;font-size:15px;letter-spacing:1px}
+  .divider-dot{width:4px;height:4px;background:rgba(255,200,100,.3);border-radius:50%}
+  #bar-status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#aaa;margin-right:4px}
+  #bar-status-dot.open{background:#4CAF50}
+  #bar-status-dot.closed{background:#e53935}
+
+  /* SECTIONS */
+  section{padding:72px 5vw}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;display:block}
+  .section-heading{font-family:'Noto Serif Thai',serif;font-size:clamp(26px,5vw,40px);font-weight:700;color:var(--tea-dark);line-height:1.2;margin-bottom:12px}
+  .section-sub{font-size:15px;color:var(--text-muted);line-height:1.7;max-width:520px;margin-bottom:40px}
+  .container{max-width:1100px;margin:0 auto}
+
   /* API SETUP PANEL */
   .api-panel{background:linear-gradient(135deg,#FEF3DC,#FFF8F0);border:1.5px dashed var(--amber);border-radius:16px;padding:20px 24px;margin-bottom:32px;display:flex;gap:16px;align-items:flex-start}
   .api-panel input{flex:1;min-width:180px;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:'Noto Sans Thai',sans-serif;background:white;color:var(--text-primary)}
